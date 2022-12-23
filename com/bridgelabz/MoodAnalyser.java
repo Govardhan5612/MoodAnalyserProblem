@@ -15,22 +15,34 @@ public class MoodAnalyser {
      * create default and parameterized constructors
      */
     public MoodAnalyser(String message) {
-        this.message = message;
+        if (message.equalsIgnoreCase("null")){
+            this.message=null;
+        }
+        else {
+            this.message = message;
+        }
     }
 
     public MoodAnalyser() {
 
     }
 
-    public String moodAnalysis() {
+    public void moodAnalysis() {
         /**
          * In this method return mood
          */
-        boolean status = message.toLowerCase().contains("sad");
-        if (status == true) {
-            return "Sad";
-        } else {
-            return "Happy";
+        try {
+
+
+            boolean status = message.toLowerCase().contains("sad");
+            if (status == true) {
+                System.out.println( "Sad");
+            } else {
+                System.out.println( "Happy");
+            }
+        }
+        catch (Exception exception){
+            System.out.println("Happy");
         }
     }
 
@@ -42,7 +54,6 @@ public class MoodAnalyser {
          * Printing the message through object
          */
         MoodAnalyser moodAnalyser = new MoodAnalyser(message);
-        String result = moodAnalyser.moodAnalysis();
-        System.out.println(result);
+        moodAnalyser.moodAnalysis();
     }
 }
