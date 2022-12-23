@@ -9,7 +9,20 @@ public class MoodAnalyser {
     /**
      * Display Mood
      */
-    public String moodAnalysis(String message) {
+    String message;
+
+    /**
+     * create default and parameterized constructors
+     */
+    public MoodAnalyser(String message) {
+        this.message = message;
+    }
+
+    public MoodAnalyser() {
+
+    }
+
+    public String moodAnalysis() {
         /**
          * In this method return mood
          */
@@ -25,8 +38,11 @@ public class MoodAnalyser {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter message : ");
         String message = input.nextLine();
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String result = moodAnalyser.moodAnalysis(message);
+        /**
+         * Printing the message through object
+         */
+        MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+        String result = moodAnalyser.moodAnalysis();
         System.out.println(result);
     }
 }
